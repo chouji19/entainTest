@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<RaceItem /> renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#e1e1e1",
+      "borderRadius": 8,
+      "elevation": 5,
+      "flexDirection": "row",
+      "height": 60,
+      "justifyContent": "space-between",
+      "marginVertical": 8,
+      "paddingHorizontal": 8,
+      "shadowColor": "#BF2BFF",
+      "shadowOffset": Object {
+        "height": 2,
+        "width": 0,
+      },
+      "shadowOpacity": 0.25,
+      "shadowRadius": 3.84,
+      "width": "100%",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 15,
+        }
+      }
+    >
+      Tristate
+    </Text>
+    <Text
+      style={
+        Object {
+          "fontSize": 12,
+          "fontWeight": "300",
+        }
+      }
+    >
+      Race #
+      4
+    </Text>
+  </View>
+  <View
+    style={
+      Object {
+        "justifyContent": "center",
+        "marginRight": 4,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "fontSize": 35,
+        }
+      }
+    >
+      00:45:14
+    </Text>
+  </View>
+</View>
+`;
