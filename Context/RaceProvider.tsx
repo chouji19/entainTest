@@ -1,4 +1,4 @@
-import React,{ FC, useEffect, useReducer, useState } from 'react';
+import React,{ FC, useEffect, useReducer } from 'react';
 import backApi from '../api/backApi';
 import { IRace, RaceResponse } from '../interfaces/race';
 import { RaceContext, RaceReducer } from './';

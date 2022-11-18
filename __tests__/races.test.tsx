@@ -27,13 +27,11 @@ const initialState = {
 
 describe('<RaceItem />', () => {
 	test('renders correctly', () => {
-		// act(() => {
-			const component = create(
-				<RaceContext.Provider value={initialState}>
-					<RaceItem race={race} />
-				</RaceContext.Provider>
-			).toJSON();
-			expect(component).toMatchSnapshot();
-		});
-	// });
+		const component = create(
+			<RaceContext.Provider value={initialState}>
+				<RaceItem race={race} />
+			</RaceContext.Provider>
+		).toJSON();
+		expect(component).toMatchSnapshot();
+	});
 });
