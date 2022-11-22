@@ -22,6 +22,12 @@ To run on IOS Emulator
 yarn ios
 ```
 
+To run on Android Emulator
+
+```
+yarn android
+```
+
 Run test
 
 ```
@@ -29,5 +35,14 @@ yarn test
 ```
 
 ## App preview:
+iOS
 
-<img width="442" alt="image" src="https://user-images.githubusercontent.com/3513973/202618155-dc967ad7-dce7-4625-a293-1fa5c463fe0e.png">
+<img width="434" alt="image" src="https://user-images.githubusercontent.com/3513973/203218203-ba48ca89-4d10-4b1b-aa35-15f900370add.png">
+
+Android
+
+<img width="415" alt="image" src="https://user-images.githubusercontent.com/3513973/203218552-8af3a50c-fc35-4d09-8042-feb4f7a9e89e.png">
+
+
+
+
