@@ -1,9 +1,11 @@
+/* eslint-disable react-native/no-inline-styles */
 import React, { useContext, useEffect, useState } from 'react';
 import { StyleSheet, View, Text } from 'react-native';
-import moment from 'moment';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { mainColor } from '../../Constants';
 import { IRace } from '../../interfaces/race';
 import { RaceContext } from '../../Context';
+import { getTimerFormat } from '../../util/utils';
 
 interface Props {
 	race: IRace
@@ -11,6 +13,7 @@ interface Props {
 
 const RaceItem: React.FC<Props> = ({ race }) => {
 	const [timer, setTimer] = useState(race ? race.advertised_start_seconds : 60);
+	// const [timer, setTimer] = useState(Math.floor(Math.random() * 60) * 60 );
 
 	const { removeRace } = useContext(RaceContext);
 
@@ -29,7 +32,7 @@ const RaceItem: React.FC<Props> = ({ race }) => {
 	}, []);
 
 	useEffect(() => {
-		if (timer === 0) {
+		if (timer < -59) {
 			removeRace(race.race_id);
 			clear();
 		}
@@ -42,12 +45,20 @@ const RaceItem: React.FC<Props> = ({ race }) => {
 
 	return (
 		<View style={styles.item}>
+			<View style={styles.iconContainer}>
+				<Icon name="horse-variant-fast" size={15} color="black" />
+			</View>
 			<View style={styles.itemInfo}>
 				<Text style={styles.meetingName}>{race.meeting_name}</Text>
 				<Text style={styles.raceNumber}>Race #{race.race_number}</Text>
 			</View>
 			<View style={styles.itemCounter}>
-				<Text style={styles.countDown}>{moment.utc(timer * 1000).format('HH:mm:ss')}</Text>
+				<Text
+					style={[styles.countDown,
+					{ color: timer <= 60 ? 'red' : 'black' }]}
+				>
+					{getTimerFormat(timer)}
+				</Text>
 			</View>
 		</View>
 	);
@@ -58,9 +69,9 @@ const styles = StyleSheet.create({
 		flexDirection: 'row',
 		justifyContent: 'space-between',
 		backgroundColor: '#e1e1e1',
-		height: 60,
+		height: 40,
 		width: '100%',
-		marginVertical: 8,
+		marginVertical: 4,
 		paddingHorizontal: 8,
 		borderRadius: 8,
 		shadowColor: mainColor,
@@ -72,6 +83,10 @@ const styles = StyleSheet.create({
 		shadowRadius: 3.84,
 
 		elevation: 5,
+	},
+	iconContainer: {
+		justifyContent: 'center',
+		marginRight: 6,
 	},
 	itemInfo: {
 		flex: 1,
@@ -89,7 +104,10 @@ const styles = StyleSheet.create({
 		fontWeight: '300',
 	},
 	countDown: {
-		fontSize: 35,
+		fontSize: 15,
+	},
+	countDownRed: {
+		color: 'red',
 	},
 });
 
