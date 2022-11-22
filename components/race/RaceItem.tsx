@@ -55,7 +55,7 @@ const RaceItem: React.FC<Props> = ({ race }) => {
 			<View style={styles.itemCounter}>
 				<Text
 					style={[styles.countDown,
-					{ color: timer <= 60 ? 'red' : 'black' }]}
+					{ color: timer <= 60 * 5 ? 'red' : 'black' }]}
 				>
 					{getTimerFormat(timer)}
 				</Text>

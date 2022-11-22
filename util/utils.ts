@@ -1,4 +1,6 @@
 import moment from 'moment';
+
+//Format the time in the countdown timer
 export const getTimerFormat = (timer: number) => {
 	var d = moment.duration(timer, 'seconds');
 	var s = (d.hours() > 0 ? d.hours() + 'h ' : '')
